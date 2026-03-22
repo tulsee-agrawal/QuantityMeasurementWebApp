@@ -1,0 +1,37 @@
+{
+  "units": [
+    { "id": 1, "type": "length", "label": "Kilometer", "symbol": "km" },
+    { "id": 2, "type": "length", "label": "Meter", "symbol": "m" },
+    { "id": 3, "type": "length", "label": "Centimeter", "symbol": "cm" },
+    { "id": 4, "type": "length", "label": "Millimeter", "symbol": "mm" },
+
+    { "id": 5, "type": "weight", "label": "Kilogram", "symbol": "kg" },
+    { "id": 6, "type": "weight", "label": "Gram", "symbol": "g" },
+    { "id": 7, "type": "weight", "label": "Milligram", "symbol": "mg" },
+
+    { "id": 8, "type": "temperature", "label": "Celsius", "symbol": "C" },
+    { "id": 9, "type": "temperature", "label": "Fahrenheit", "symbol": "F" },
+    { "id": 10, "type": "temperature", "label": "Kelvin", "symbol": "K" },
+
+    { "id": 11, "type": "volume", "label": "Liter", "symbol": "L" },
+    { "id": 12, "type": "volume", "label": "Milliliter", "symbol": "mL" }
+  ],
+
+  "conversions": [
+    { "id": 1, "from": "km", "to": "m", "factor": 1000, "formula": null },
+    { "id": 2, "from": "m", "to": "cm", "factor": 100, "formula": null },
+    { "id": 3, "from": "cm", "to": "mm", "factor": 10, "formula": null },
+
+    { "id": 4, "from": "kg", "to": "g", "factor": 1000, "formula": null },
+    { "id": 5, "from": "g", "to": "mg", "factor": 1000, "formula": null },
+
+    { "id": 6, "from": "L", "to": "mL", "factor": 1000, "formula": null },
+
+    { "id": 7, "from": "C", "to": "F", "factor": null, "formula": "(x*9/5)+32" },
+    { "id": 8, "from": "F", "to": "C", "factor": null, "formula": "(x-32)*5/9" },
+    { "id": 9, "from": "C", "to": "K", "factor": null, "formula": "x+273.15" },
+    { "id": 10, "from": "K", "to": "C", "factor": null, "formula": "x-273.15" }
+  ],
+
+  "history": []
+}
