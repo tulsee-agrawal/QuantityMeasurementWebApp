@@ -248,3 +248,13 @@ function showResult(value, unitSymbol) {
         unitEl.classList.remove("highlight");
     }, 1500);
 }
+function toggleOperators(show) {
+    const row = document.querySelector("#operator-selector");
+
+    if (!row) {
+        console.warn("Operator selector not found");
+        return;
+    }
+
+    row.style.display = show ? "flex" : "none";
+}
