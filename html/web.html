@@ -63,8 +63,8 @@
         <div id="input-section">
             <div class="input-box">
                 <label>FROM</label>
-                <input type="number" value="1">
-                <select>
+                <input type="number" id="fromValue" value="1">
+                <select id="fromUnit">
                     <option>Kilometer</option>
                     <option>Meter</option>
                     <option>Centimeter</option>
@@ -74,8 +74,8 @@
 
             <div class="input-box">
                 <label>TO</label>
-                <input type="number" value="1000">
-                <select>
+                <input type="number" id="toValue" value="1000">
+                <select id="toUnit">
                     <option>Meters</option>
                     <option>Kilometer</option>
                     <option>Centimeter</option>
@@ -84,8 +84,8 @@
             </div>
         </div>
     </div>
-
-    <script src="../js/script.js"></script>
+<button id="convertBtn">Convert</button>
+    <script type="module" src="../js/script.js"></script>
 </body>
 
 </html>

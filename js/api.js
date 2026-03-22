@@ -15,21 +15,6 @@ export async function getUnits(type) {
     }
 }
 
-export async function getUnits(type) {
-    try {
-        const res = await fetch(`${BASE_URL}/units?type=${type}`);
-
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
-
-        return await res.json();
-    } catch (error) {
-        console.error("Error fetching units:", error);
-        return [];
-    }
-}
-
 export async function getConversion(from, to) {
 
     const res = await fetch(`${BASE_URL}/conversions?from=${from}&to=${to}`);
@@ -45,4 +30,24 @@ export async function getConversion(from, to) {
     }
 
     return data[0];   
+}
+
+export async function saveHistory(record) {
+    try {
+        const res = await fetch(`${BASE_URL}/history`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(record)
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+        }
+
+        return await res.json();
+    } catch (error) {
+        console.error("Failed to save history:", error);
+    }
 }

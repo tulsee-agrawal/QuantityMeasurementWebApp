@@ -1,4 +1,4 @@
-import { getUnits } from "./api.js";
+import { getUnits, getConversion, saveHistory } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -91,7 +91,32 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.log("History not loaded.");
         }
     }
+document.getElementById("convertBtn").addEventListener("click", async () => {
+    const value = Number(document.getElementById("fromValue").value);
+    const from = document.getElementById("fromUnit").value;
+    const to = document.getElementById("toUnit").value;
 
+    const conv = await getConversion(from, to);
+
+    let result;
+
+    if (conv.factor !== null) {
+        result = value * conv.factor;
+    } else {
+        const fn = new Function("x", `return ${conv.formula}`);
+        result = fn(value);
+    }
+
+    document.getElementById("toValue").value = result;
+
+    await saveHistory({
+        from,
+        to,
+        input: value,
+        result,
+        timestamp: new Date().toISOString()
+    });
+});
     function showError(message) {
         alert(message);
     }
