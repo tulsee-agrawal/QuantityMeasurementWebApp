@@ -144,3 +144,21 @@ function renderHistory(records) {
         list.appendChild(li);
     });
 }
+const actionSelector = document.getElementById("actions");
+
+document.querySelectorAll(".action-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        state.action = btn.textContent.trim();
+
+        setActive(
+            actionSelector,
+            btn,
+            ".action-btn"
+        );
+
+        toggleOperators(state.action === "Arithmetic");
+
+        showResult(0, "");
+    });
+});
