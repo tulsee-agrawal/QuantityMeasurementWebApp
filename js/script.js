@@ -223,3 +223,28 @@ function setActive(parentEl, clickedEl, childSelector) {
 
     clickedEl.classList.add("active");
 }
+function showResult(value, unitSymbol) {
+    const valueEl = document.querySelector("#result-value");
+    const unitEl = document.querySelector("#result-unit");
+
+    if (!valueEl || !unitEl) {
+        return;
+    }
+
+    if (value === null || value === undefined) {
+        valueEl.textContent = "—";
+        unitEl.textContent = "";
+        return;
+    }
+
+    valueEl.textContent = value;
+    unitEl.textContent = unitSymbol || "";
+
+    valueEl.classList.add("highlight");
+    unitEl.classList.add("highlight");
+
+    setTimeout(() => {
+        valueEl.classList.remove("highlight");
+        unitEl.classList.remove("highlight");
+    }, 1500);
+}
