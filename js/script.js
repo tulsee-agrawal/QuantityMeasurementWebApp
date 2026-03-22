@@ -187,3 +187,28 @@ function performArithmetic(v1, v2normalised, op) {
             throw new Error("Unknown operator");
     }
 }
+function populateDropdown(selectEl, units) {
+    if (!selectEl) {
+        console.warn("populateDropdown: select element is null");
+        return;
+    }
+
+    selectEl.innerHTML = "";
+
+    const defaultOpt = document.createElement("option");
+    defaultOpt.textContent = "-- Select Unit --";
+    defaultOpt.disabled = true;
+    defaultOpt.selected = true;
+    selectEl.appendChild(defaultOpt);
+
+    if (!Array.isArray(units) || units.length === 0) {
+        return;
+    }
+
+    units.forEach(u => {
+        const opt = document.createElement("option");
+        opt.value = u.symbol;
+        opt.textContent = `${u.label} (${u.symbol})`;
+        selectEl.appendChild(opt);
+    });
+}
