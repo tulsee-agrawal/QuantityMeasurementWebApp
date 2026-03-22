@@ -1,20 +1,20 @@
 {
   "units": [
-    { "id": 1, "type": "length", "label": "Kilometer", "symbol": "km" },
-    { "id": 2, "type": "length", "label": "Meter", "symbol": "m" },
-    { "id": 3, "type": "length", "label": "Centimeter", "symbol": "cm" },
-    { "id": 4, "type": "length", "label": "Millimeter", "symbol": "mm" },
+    { "id": 1, "type": "Length", "label": "Kilometer", "symbol": "km" },
+    { "id": 2, "type": "Length", "label": "Meter", "symbol": "m" },
+    { "id": 3, "type": "Length", "label": "Centimeter", "symbol": "cm" },
+    { "id": 4, "type": "Length", "label": "Millimeter", "symbol": "mm" },
 
-    { "id": 5, "type": "weight", "label": "Kilogram", "symbol": "kg" },
-    { "id": 6, "type": "weight", "label": "Gram", "symbol": "g" },
-    { "id": 7, "type": "weight", "label": "Milligram", "symbol": "mg" },
+    { "id": 5, "type": "Weight", "label": "Kilogram", "symbol": "kg" },
+    { "id": 6, "type": "Weight", "label": "Gram", "symbol": "g" },
+    { "id": 7, "type": "Weight", "label": "Milligram", "symbol": "mg" },
 
-    { "id": 8, "type": "temperature", "label": "Celsius", "symbol": "C" },
-    { "id": 9, "type": "temperature", "label": "Fahrenheit", "symbol": "F" },
-    { "id": 10, "type": "temperature", "label": "Kelvin", "symbol": "K" },
+    { "id": 8, "type": "Temperature", "label": "Celsius", "symbol": "C" },
+    { "id": 9, "type": "Temperature", "label": "Fahrenheit", "symbol": "F" },
+    { "id": 10, "type": "Temperature", "label": "Kelvin", "symbol": "K" },
 
-    { "id": 11, "type": "volume", "label": "Liter", "symbol": "L" },
-    { "id": 12, "type": "volume", "label": "Milliliter", "symbol": "mL" }
+    { "id": 11, "type": "Volume", "label": "Liter", "symbol": "L" },
+    { "id": 12, "type": "Volume", "label": "Milliliter", "symbol": "mL" }
   ],
 
   "conversions": [

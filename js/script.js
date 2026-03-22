@@ -1,3 +1,5 @@
+import { getUnits } from "./api.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
 
     const state = {
@@ -58,26 +60,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     async function loadUnits(type) {
-        const res = await fetch("http://localhost:3000/units");
-        const units = await res.json();
 
-        const filtered = units.filter(u => 
-            u.type.toLowerCase() === type.toLowerCase()
-        );
+    const units = await getUnits(type);
 
-        const selects = document.querySelectorAll("select");
-
-        selects.forEach(select => {
-            select.innerHTML = "";
-
-            filtered.forEach(unit => {
-                const option = document.createElement("option");
-                option.value = unit.symbol;
-                option.textContent = unit.label;
-                select.appendChild(option);
-            });
-        });
+    if (!units || units.length === 0) {
+        showError("No units found for this type.");
+        return;
     }
+
+    const selects = document.querySelectorAll("select");
+
+    selects.forEach(select => {
+        select.innerHTML = "";
+
+        units.forEach(unit => {
+            const option = document.createElement("option");
+            option.value = unit.symbol;
+            option.textContent = unit.label;
+            select.appendChild(option);
+        });
+    });
+
+}
 
     async function loadHistory() {
         try {
