@@ -162,3 +162,71 @@ document.querySelectorAll(".action-btn").forEach(btn => {
         showResult(0, "");
     });
 });
+async function calculate() {
+    try {
+        // missing inputs → return early
+        if (
+            !Number.isFinite(state.fromVal) ||
+            !state.fromUnit ||
+            (state.action !== "Conversion" && !Number.isFinite(state.toVal)) ||
+            !state.toUnit
+        ) {
+            return;
+        }
+
+        let result;
+        let expression = "";
+
+        // --- CONVERSION ---
+        if (state.action === "Conversion") {
+            const conv = await getConversion(state.fromUnit, state.toUnit);
+            result = applyConversion(state.fromVal, conv);
+
+            expression = `${state.fromVal} ${state.fromUnit} → ${state.toUnit}`;
+            showResult(result, state.toUnit);
+        }
+
+        // --- COMPARISON ---
+        else if (state.action === "Comparison") {
+            // caller already normalised to base units
+            result = compareValues(
+                state.fromVal,
+                state.fromUnit,
+                state.toVal,
+                state.toUnit,
+                state.fromBase,
+                state.toBase
+            );
+
+            expression = `${state.fromVal} ${state.fromUnit} vs ${state.toVal} ${state.toUnit}`;
+            showResult(result, "");
+        }
+
+        // --- ARITHMETIC ---
+        else {
+            // v2 already normalised to fromUnit
+            result = performArithmetic(
+                state.fromVal,
+                state.toVal,
+                state.operator
+            );
+
+            expression = `${state.fromVal} ${state.operator} ${state.toVal} ${state.fromUnit}`;
+            showResult(result, state.fromUnit);
+        }
+
+        const record = {
+            type: state.type,
+            action: state.action,
+            expression,
+            result,
+            timestamp: new Date().toISOString()
+        };
+
+        await saveHistory(record);
+        renderHistory(await getHistory());
+
+    } catch (e) {
+        showResult("Error: " + e.message, "");
+    }
+}
