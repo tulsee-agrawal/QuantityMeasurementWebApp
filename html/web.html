@@ -1,91 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantity Measurement Web App</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+    <link rel="stylesheet" href="../css/style.css"
 
-<body>
-    <div id="header">
-        <h1>Welcome to Quantity Measurement</h1>
-    </div>
+<div id="header">
+    <h1>Welcome to Quantity Measurement</h1>
+</div>
 
-    <div class="container">
-        <div class="section-title">
-            CHOOSE TYPE
+<div class="container">
+
+    <!-- TYPE SELECTION -->
+    <div class="section-title">CHOOSE TYPE</div>
+
+    <div id="types">
+        <div class="card type-card" data-type="Length">
+            <h3>Length</h3>
         </div>
-
-        <div id="types">
-            <div class="card">
-                <div class="icon">
-                    <img alt="Length" src="https://img.icons8.com/color/50/ruler.png">
-                </div>
-                <h3>Length</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">
-                    <img alt="Weight" src="https://img.icons8.com/color/50/scales.png">
-                </div>
-                <h3>Weight</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">
-                    <img alt="Temperature" src="https://img.icons8.com/color/50/thermometer.png">
-                </div>
-                <h3>Temperature</h3>
-            </div>
-
-            <div class="card">
-                <div class="icon">
-                    <img alt="Volume" src="https://img.icons8.com/color/50/measuring-cup.png">
-                </div>
-                <h3>Volume</h3>
-            </div>
+        <div class="card type-card" data-type="Weight">
+            <h3>Weight</h3>
         </div>
-
-
-        <div class="section-title">
-            CHOOSE ACTION
+        <div class="card type-card" data-type="Temperature">
+            <h3>Temperature</h3>
         </div>
-
-        <div id="actions">
-            <button class="action-btn">Comparison</button>
-            <button class="action-btn">Conversion</button>
-            <button class="action-btn">Arithmetic</button>
-        </div>
-
-
-        <div id="input-section">
-            <div class="input-box">
-                <label>FROM</label>
-                <input type="number" id="fromValue" value="1">
-                <select id="fromUnit">
-                    <option>Kilometer</option>
-                    <option>Meter</option>
-                    <option>Centimeter</option>
-                    <option>Millimeter</option>
-                </select>
-            </div>
-
-            <div class="input-box">
-                <label>TO</label>
-                <input type="number" id="toValue" value="1000">
-                <select id="toUnit">
-                    <option>Meters</option>
-                    <option>Kilometer</option>
-                    <option>Centimeter</option>
-                    <option>Millimeter</option>
-                </select>
-            </div>
+        <div class="card type-card" data-type="Volume">
+            <h3>Volume</h3>
         </div>
     </div>
-<button id="convertBtn">Convert</button>
-    <script type="module" src="../js/script.js"></script>
+
+    <!-- INPUT SECTION -->
+    <div class="section-title">CONVERSION</div>
+
+    <div id="input-section">
+        <div class="input-box">
+            <label>FROM</label>
+            <input type="number" id="fromValue">
+            <select id="fromUnit"></select>
+        </div>
+
+        <div class="input-box">
+            <label>TO</label>
+            <input type="number" id="toValue" readonly>
+            <select id="toUnit"></select>
+        </div>
+    </div>
+
+    <!-- CONVERT BUTTON -->
+    <button id="convertBtn">Convert</button>
+
+    <!-- RESULT PANEL -->
+    <div class="section-title">RESULT</div>
+    <div id="result-panel">
+        <span id="result-value">—</span>
+        <span id="result-unit"></span>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="section-title">HISTORY</div>
+    <ul id="history-list"></ul>
+
+</div>
+
+  <script type="module" src="../js/script.js"></script>
 </body>
-
 </html>
