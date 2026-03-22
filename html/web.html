@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity Measurement Web App</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div id="header">
+        <h1>Welcome to Quantity Measurement</h1>
+    </div>
+
+    <div class="container">
+        <div class="section-title">
+            CHOOSE TYPE
+        </div>
+
+        <div id="types">
+            <div class="card">
+                <div class="icon">
+                    <img alt="Length" src="https://img.icons8.com/color/50/ruler.png">
+                </div>
+                <h3>Length</h3>
+            </div>
+
+            <div class="card">
+                <div class="icon">
+                    <img alt="Weight" src="https://img.icons8.com/color/50/scales.png">
+                </div>
+                <h3>Weight</h3>
+            </div>
+
+            <div class="card">
+                <div class="icon">
+                    <img alt="Temperature" src="https://img.icons8.com/color/50/thermometer.png">
+                </div>
+                <h3>Temperature</h3>
+            </div>
+
+            <div class="card">
+                <div class="icon">
+                    <img alt="Volume" src="https://img.icons8.com/color/50/measuring-cup.png">
+                </div>
+                <h3>Volume</h3>
+            </div>
+        </div>
+
+
+        <div class="section-title">
+            CHOOSE ACTION
+        </div>
+
+        <div id="actions">
+            <button class="action-btn">Comparison</button>
+            <button class="action-btn">Conversion</button>
+            <button class="action-btn">Arithmetic</button>
+        </div>
+
+
+        <div id="input-section">
+            <div class="input-box">
+                <label>FROM</label>
+                <input type="number" value="1">
+                <select>
+                    <option>Kilometer</option>
+                    <option>Meter</option>
+                    <option>Centimeter</option>
+                    <option>Millimeter</option>
+                </select>
+            </div>
+
+            <div class="input-box">
+                <label>TO</label>
+                <input type="number" value="1000">
+                <select>
+                    <option>Meters</option>
+                    <option>Kilometer</option>
+                    <option>Centimeter</option>
+                    <option>Millimeter</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
