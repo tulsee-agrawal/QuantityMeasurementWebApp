@@ -1,4 +1,4 @@
-import { getUnits, getConversion, saveHistory } from "./api.js";
+import { getUnits, getConversion, saveHistory ,getHistory } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -83,14 +83,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 }
 
-    async function loadHistory() {
-        try {
-            const res = await fetch("http://localhost:3000/history");
-            await res.json();
-        } catch (error) {
-            console.log("History not loaded.");
-        }
+   async function loadHistory() {
+    const history = await getHistory();
+
+    if (history.length === 0) {
+        console.log("No history yet.");
+        return;
     }
+
+    console.log(history);
+}
 document.getElementById("convertBtn").addEventListener("click", async () => {
     const value = Number(document.getElementById("fromValue").value);
     const from = document.getElementById("fromUnit").value;
@@ -116,6 +118,9 @@ document.getElementById("convertBtn").addEventListener("click", async () => {
         result,
         timestamp: new Date().toISOString()
     });
+    
+loadHistory();
+
 });
     function showError(message) {
         alert(message);
